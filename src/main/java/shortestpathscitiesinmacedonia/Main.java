@@ -12,7 +12,7 @@ import javax.swing.*;
  */
 public class Main {
 	public static void main(String[] args) {
-		 EventQueue.invokeLater(() -> {
+		EventQueue.invokeLater(() -> {
 			JFrame frame = new ShortestPathFrame();
 			frame.setTitle("Shortest route between Macedonian cities");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
