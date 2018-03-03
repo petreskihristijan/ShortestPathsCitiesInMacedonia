@@ -12,14 +12,18 @@ import javax.swing.*;
  */
 public class Main {
 	public static void main(String[] args) {
-		
+		 EventQueue.invokeLater(() -> {
+			JFrame frame = new ShortestPathFrame();
+			frame.setTitle("Shortest route between Macedonian cities");
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible(true);
 		});
 	}
 }
 
 class ShortestPathFrame extends JFrame{
 	private static final int DEFAULT_WIDTH = 400;
-	private static final int DEFAULT_HEIGHT = 300;
+	private static final int DEFAULT_HEIGHT = 150;
 	private JLabel fromLabel;
 	private JLabel toLabel;
 	private JComboBox fromCombo;
@@ -53,6 +57,6 @@ class ShortestPathFrame extends JFrame{
 		
 		mainPanel.add(routeLabel);
 		mainPanel.add(distanceLabel);
-		
+		add(mainPanel);
 	}
 }
