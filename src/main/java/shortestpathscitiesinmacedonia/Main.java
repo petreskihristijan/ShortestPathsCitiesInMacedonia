@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
 			JFrame frame = new ShortestPathFrame();
-			frame.setTitle("Shortest route between Macedonian cities");
+			frame.setTitle("Routes");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setVisible(true);
 		});
@@ -22,12 +22,13 @@ public class Main {
 }
 
 class ShortestPathFrame extends JFrame{
-	private static final int DEFAULT_WIDTH = 400;
-	private static final int DEFAULT_HEIGHT = 150;
+	private static final int DEFAULT_WIDTH = 250;
+	private static final int DEFAULT_HEIGHT = 100;
 	private JLabel fromLabel;
 	private JLabel toLabel;
 	private JComboBox fromCombo;
 	private JComboBox toCombo;
+	private JButton searchButton;
 	private JLabel routeLabel;
 	private JLabel distanceLabel;
 	private JPanel mainPanel;
@@ -36,6 +37,7 @@ class ShortestPathFrame extends JFrame{
 	public ShortestPathFrame() {
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		
+		
 		fromLabel = new JLabel("From:");
 		toLabel = new JLabel("To:");
 		fromCombo = new JComboBox();
@@ -43,7 +45,15 @@ class ShortestPathFrame extends JFrame{
 		routeLabel = new JLabel("The shortest route is: ");
 		distanceLabel = new JLabel("The distance is: ");
 		
-		mainPanel = new JPanel(new GridLayout(4,1));
+		JPanel optionPanel = new JPanel(new GridLayout(2,1));
+		optionPanel.add(routeLabel);
+		optionPanel.add(distanceLabel);
+		searchButton = new JButton("Search");
+		searchButton.addActionListener(event -> {
+			JOptionPane.showMessageDialog(null, optionPanel);
+		});
+		
+		mainPanel = new JPanel(new GridLayout(3,1));
 		secPanel = new JPanel(new GridLayout(1,2));
 		
 		secPanel.add(fromLabel);
@@ -55,8 +65,7 @@ class ShortestPathFrame extends JFrame{
 		secPanel.add(toCombo);
 		mainPanel.add(secPanel);
 		
-		mainPanel.add(routeLabel);
-		mainPanel.add(distanceLabel);
+		mainPanel.add(searchButton);
 		add(mainPanel);
 	}
 }
