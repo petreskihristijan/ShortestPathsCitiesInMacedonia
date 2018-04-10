@@ -1,9 +1,9 @@
 package shortestpathscitiesinmacedonia;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface GraphDataStructure<T> {
-	public boolean hasAdjacentVertex(T vertex);
-	public List<T> listAdjacentVertecies(T vertex);
+	public boolean hasAdjacentVertex(T firstVertex, T secondVertex);
+	public ArrayList<T> listAdjacentVertecies(T vertex);
 	public int vertexDegree(T vertex);
 }
