@@ -1,5 +1,5 @@
 package shortestpathscitiesinmacedonia;
 
-public interface GraphContainer<T> {
-	public void add(T vertex);
+public interface GraphContainer<T> extends GraphDataStructure<T> {
+	public void add(T firstVertex, T secondVertex);
 }
